@@ -1,27 +1,77 @@
 import axios from "axios";
 
-export const BASE_URL = "https://youtube-v31.p.rapidapi.com";
+export const BASE_URL = process.env.REACT_APP_PATIENT_SERVICE_API_BASE_URL;
 
-const options = {
-  params: {
-    maxResults: "50",
+const PatientService = {
+  getAllPatients: async () => {
+    const { data } = await axios.request({
+      url: `${BASE_URL}/patients`,
+    });
+
+    const patientsList = data.map((patient) => {
+      return {
+        ...patient,
+        full_name: patient.first_name + " " + patient.last_name,
+      };
+    });
+
+    return patientsList;
   },
-  headers: {
-    "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
-    "X-RapidAPI-Host": "youtube-v31.p.rapidapi.com",
+  getPatientByPatientId: async (patientId) => {
+    console.log("getPatientByPatientId:: ", patientId);
+    try {
+      const { data } = await axios.get(`${BASE_URL}/patients/${patientId}`);
+      return {
+        ...data,
+        full_name: data.first_name + " " + data.last_name,
+      };
+    } catch (error) {}
+  },
+  updatePatient: async (patient) => {
+    try {
+      const { data } = await axios.patch(
+        `${BASE_URL}/patients/${patient.id}`,
+        patient
+      );
+      return data;
+    } catch (error) {}
+  },
+  deletePatient: async (patientId) => {
+    try {
+      const { data } = await axios.delete(`${BASE_URL}/patients/${patientId}`);
+      return data;
+    } catch (error) {}
+  },
+  createPatient: async (patient) => {
+    try {
+      const { data } = await axios.post(`${BASE_URL}/patients`, patient);
+      return data;
+    } catch (error) {}
   },
 };
 
-export const fetchFromApi = (endpoint, searchQuery) => {
-  const apiOptions = {
-    ...options,
-    url: `${BASE_URL}${endpoint}`,
-    params: {
-      ...options.params,
-      q: searchQuery,
-    },
-  };
-
-  return axios.request(apiOptions);
+const HospitalService = {
+  getAllHospitals: async () => {
+    const { data } = await axios.request({
+      url: `${BASE_URL}/hospitals`,
+    });
+    return data;
+  },
 };
+
+
+const PhysicianService = {
+  getAllPhysicians: async () => {
+    const { data } = await axios.request({
+      url: `${BASE_URL}/physicians`,
+    });
+    return data;
+  },
+};
+
+
+export { PatientService, HospitalService, PhysicianService };
+
+
+
 

@@ -4,100 +4,86 @@
  * App.js
  ************************/
 export const appWrapper = {
-    display: "flex",
-    height: "100vh",
-    overflow: "hidden",
-  };
-  /***********************
-   * Navigation
-   ************************/
-  
+  display: "flex",
+  height: "100vh",
+  overflow: "hidden",
+};
 
-  
-  export const appBar = {
-    backgroundColor: "#1da1f2",
-    color: "#fff",
-  };
-  
-  export const toolbarWrapper = {
-    display: "flex",
-    justifyContent: "space-between",
-    flexGrow: 1,
-  };
-  
-  export const logoText = {
-    fontSize: 22,
-    ml: 1,
-    fontFamily: "Oswald",
-  };
-  
-  /***********************
-   * SideList
-   ************************/
-  
-  export const sideListWrapper = {
-    width: "100%",
-    height: "100%",
-    bgcolor: "background.paper",
-    borderRight: "3px solid #1da1f2",
-  };
-  
-  /***********************
-   * Notification List
-   ************************/
-  export const notificationWrapper = {
-    width: "100%",
-    maxWidth: 360,
-    pb: 0,
-  };
-  
-  /***********************
-   * Card.js
-   ************************/
-  
-  export const appCardList = {
-    width: "100%",
-    bgcolor: "background.paper",
-    p: 0,
-    m: 0,
-    maxWidth: "100%",
-  };
-  /***********************
-   * AppContentArea
-   ************************/
-  export const appContentWrapper = {
-    display: "flex",
-    mt: 8,
-    width: "100vw",
-    overflow: "hidden",
-  };
-  
-  /************************
-   * General styles
-   ************************/
-  export const flexAlignCenter = {
-    display: "flex",
-    alignItems: "center",
-  };
-  
-  export const flexColumnGrow = {
-    flexGrow: 1,
-    display: "flex",
-    flexDirection: "column",
-  };
-  
-  export const flexColumnCenter = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  };
-  
-  export const inlineText = { display: "inline", fontSize: 12 };
-  
-  export const flex = { display: "flex" };
-  
-  export const scrollWrapper = {
-    overflowY: "scroll",
-    "::-webkit-scrollbar": { height: "3px" },
-  };
-  export const hideOnMobile = { display: { xs: "none", sm: "flex" } };
+/***********************
+ * Navigation
+ ************************/
+
+export const appBar = {
+  backgroundColor: "#007BFF",
+  color: "#fff",
+};
+
+export const toolbarWrapper = {
+  display: "flex",
+  justifyContent: "space-between",
+  flexGrow: 1,
+};
+
+export const logoText = {
+  fontSize: 22,
+  ml: 1,
+  fontFamily: "Oswald",
+};
+
+/***********************
+ * SideList
+ ************************/
+export const sideListWrapper = {
+  width: "100%",
+  bgcolor: "#007BFF",
+  borderRight: "1px solid #ddd",
+};
+
+/***********************
+ * Notification List
+ ************************/
+export const notificationWrapper = {
+  width: "100%",
+  maxWidth: 360,
+  pb: 0,
+};
+
+/***********************
+ * AppContentArea
+ ************************/
+export const appContentWrapper = {
+  display: "flex",
+  mt: 8,
+  width: "100vw",
+  overflow: "hidden",
+};
+
+/************************
+ * General styles
+ ************************/
+export const flexAlignCenter = {
+  display: "flex",
+  alignItems: "center",
+};
+
+export const flexColumnGrow = {
+  flexGrow: 1,
+  display: "flex",
+  flexDirection: "column",
+};
+
+export const flexColumnCenter = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+};
+
+export const inlineText = { display: "inline", fontSize: 12 };
+
+export const flex = { display: "flex" };
+
+export const scrollWrapper = {
+  overflowY: "scroll",
+  "::-webkit-scrollbar": { height: "3px" },
+};
+export const hideOnMobile = { display: { xs: "none", sm: "flex" } };

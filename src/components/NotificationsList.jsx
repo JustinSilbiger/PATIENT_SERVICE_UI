@@ -19,8 +19,8 @@ const NotificationsList = () => {
   const { el, open, handleClick, handleClose } = useToggle();
   return (
     <Box sx={{ px: 1 }}>
-      <Button id="basic-button" onClick={handleClick}>
-        <BsBellFill size={24} style={{ color: 'white' }}/>
+      <Button id="basic-button" onClick={handleClick} color="inherit">
+        <BsBellFill size={24} />
       </Button>
       <Menu
         id="basic-menu"

@@ -3,16 +3,24 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
+import ListItem, { listItemClasses } from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
-import { sideListWrapper } from "@styles/styles";
+import { useNavigate } from "react-router-dom";
 
-const SideList = () => {
+
+  const SideList = () => {
+    const navigate = useNavigate();
+    const handleOnClick = (event) => {
+      let route = event.target.textContent.toLowerCase();
+      navigate(route);
+    };
+  
+  
   return (
-    <Box sx={sideListWrapper}>
+    <Box>
       {sideListItems.map((item) => {
         return (
           <React.Fragment key={item.id}>
@@ -21,7 +29,7 @@ const SideList = () => {
                 <Divider />
                 <Box sx={{ ml: 2, mt: 2 }}>
                   <Typography
-                    sx={{ textTransform: "uppercase", fontWeight: "bold"}}
+                    sx={{ textTransform: "uppercase", fontWeight: "bold" }}
                     variant="button"
                     display="block"
                     gutterBottom
@@ -34,9 +42,23 @@ const SideList = () => {
               <Divider />
             ) : (
               <nav aria-label="Side list items">
-                <List sx={{ p: 0 }}>
+                <List
+                  sx={{
+                    color: "#fff",
+                    "& svg": {
+                      fill: "#fff",
+                    },
+                    [`& .active, & .${listItemClasses.root}:hover`]: {
+                      color: "#13293D",
+                      fontWeight: "bold",
+                      "& svg": {
+                        fill: "#13293D",
+                      },
+                    },
+                  }}
+                >
                   <ListItem disablePadding>
-                    <ListItemButton>
+                    <ListItemButton onClick={handleOnClick}>
                       <ListItemIcon>{item.icon}</ListItemIcon>
                       <ListItemText primary={item.text} />
                     </ListItemButton>

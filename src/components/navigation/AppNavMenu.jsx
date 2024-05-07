@@ -1,4 +1,4 @@
-import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined';
+import { FaHandHoldingMedical } from "react-icons/fa";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -13,16 +13,15 @@ import {
   logoText,
   hideOnMobile,
 } from "@styles/styles";
-import UserProfile from '@components/UserProfile';
-import NotificationsList from '@components/NotificationsList';
-
+import UserProfile from "../UserProfile";
+import NotificationsList from "../NotificationsList";
 
 const AppNavMenu = (props) => {
   return (
     <AppBar component="nav" sx={appBar}>
       <Toolbar>
-          <Box sx={toolbarWrapper}>
-            <Box sx={flexAlignCenter}>
+        <Box sx={toolbarWrapper}>
+          <Box sx={flexAlignCenter}>
             <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -32,16 +31,11 @@ const AppNavMenu = (props) => {
             >
               <MenuIcon />
             </IconButton>
-            <LocalHospitalOutlinedIcon size={200} />
+            <FaHandHoldingMedical size={32} />
             <Typography variant="h6" component="div" sx={logoText}>
-              Patient Services
+              Patient Management Service
             </Typography>
-            
           </Box>
-          <Box sx={hideOnMobile}>
-
-          </Box>
-
           <Box sx={hideOnMobile}>
             <NotificationsList />
             <UserProfile />

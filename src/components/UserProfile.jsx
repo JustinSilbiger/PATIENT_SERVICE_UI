@@ -21,8 +21,8 @@ const UserProfile = () => {
   const { el, open, handleClick, handleClose } = useToggle();
   return (
     <Box sx={{ px: 1 }}>
-      <Button id="basic-button" onClick={handleClick}>
-        <FaUserCircle size={24} style={{ color: 'white' }}/>
+      <Button id="basic-button" onClick={handleClick} color="inherit">
+        <FaUserCircle size={24} />
       </Button>
       <Menu
         id="basic-menu"
@@ -38,19 +38,19 @@ const UserProfile = () => {
             <Avatar alt="Channel avatar" src="/static/img/avatar.png" />
           </ListItemAvatar>
           <ListItemText
-            primary="Welcome, Dr. Smith"
+            primary="System User"
             secondary={
               <React.Fragment>
                 <Typography sx={inlineText} component="span">
                   <Link href="#" underline="none">
-                    Manage Your System Settings
+                    Manage Your Account
                   </Link>
                 </Typography>
               </React.Fragment>
             }
           />
         </ListItem>
-        <Box sx={{ minWidth: 300, borderTop: "3px solid #1da1f2" }}>
+        <Box sx={{ minWidth: 300, borderTop: "1px solid #ddd" }}>
           {userProfileItems.map((item) => {
             return (
               <List sx={{ p: 0 }} key={item.id}>
